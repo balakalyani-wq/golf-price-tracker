@@ -1,0 +1,13 @@
+LAPTOP SCHEDULING (Windows Task Scheduler) — quick setup
+========================================================
+1. Open Task Scheduler -> Create Basic Task
+2. Name: "Daily Price Ingestion"
+3. Trigger: Daily, pick a time
+4. Action: Start a program
+   - Program/script:  python
+   - Add arguments:   ingest.py
+   - Start in:        C:\path\to\price-tracker\ingestion
+5. Finish. Test with "Run" in the task's right-click menu.
+
+macOS/Linux (cron) equivalent — run `crontab -e` and add:
+   0 8 * * *  cd /path/to/price-tracker/ingestion && /usr/bin/python3 ingest.py
